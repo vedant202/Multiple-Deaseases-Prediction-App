@@ -1,0 +1,40 @@
+.header{
+    display: flex;
+    padding: 0px 10vw;
+    margin-top: 7em;
+}
+.container1{
+    width: 55%;
+    margin-right: 23px;
+    margin-left:4em ;
+}
+
+.container1 h1{
+    margin-bottom: 20px;
+    font-size: 2.6em;
+}
+.container1 p{
+    font-size: 1.3em;
+}
+
+.container2 img{
+    width: 400px;
+}
+
+.container3{
+    text-align: center;
+    font-size: 2.8em;
+    margin-top: 1em;
+
+}
+
+.container3-img{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.container3-img img{
+    width: 240px;
+}
