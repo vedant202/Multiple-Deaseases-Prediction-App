@@ -18,8 +18,8 @@ export default class Navbar extends Component {
                         <div className='dropdown-content'>
                         <a href="/diabetes">Diabetes Prediction</a>
                         <a href="/kidney">Kidney Diseases Prdeiction</a>
-                        <a href="/lungs">Lungs disease prdeiction</a>
-                        <a href="/parkinsons">Parkinsons disease prdeiction</a>
+                        <a href="/heart">Heart Diseases prdeiction</a>
+                        <a href="/parkinsons">Parkinsons Diseases prdeiction</a>
                         </div>
                       </div>
                     </li>

@@ -9,7 +9,7 @@ import Home from './pages/home'
 import About from './pages/about'
 import Contact from './pages/contact'
 import Diabetes from './pages/diabetes';
-import Lungs from './pages/lungs';
+import Heart from './pages/heart';
 import Kidney from './pages/kidney';
 import Parkinsons from './pages/parkinsons';
 
@@ -51,7 +51,7 @@ class App extends React.Component{
           <Route path="contact" element={<Contact />}></Route>
           <Route path="diabetes" element={<Diabetes />}></Route>
           <Route path="kidney" element={<Kidney />}></Route>
-          <Route path="lungs" element={<Lungs />}></Route>
+          <Route path="heart" element={<Heart />}></Route>
           <Route path="parkinsons" element={<Parkinsons />}></Route>
         </Route>
       </Routes>

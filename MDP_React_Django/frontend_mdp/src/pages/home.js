@@ -16,7 +16,7 @@ export default class Home extends Component {
           <header className='header'>
             <div className="container1">
               <h1>This is basic Machine learning based Multiple disease prediction model.</h1>
-              <p>Our Machine learning model predicts the diseases such as diabetes,kidney diseases,lungs diseases,parkinsons diseases.
+              <p>Our Machine learning model predicts the diseases such as diabetes,kidney diseases,heart diseases,parkinsons diseases.
               By entering the sysmpton it can predict the disease you could be suffering from.
               Then You colud lokk for hospitals ansd clinics for Treatment  
               </p>

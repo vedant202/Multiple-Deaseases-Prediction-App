@@ -3,36 +3,15 @@ import FormRepetions from '../component/formRepetions'
 import axios from 'axios'
 
 export default class Kidney extends Component {
-
-  constructor(props){
-    super(props)
-    this.state={
-      kidney_col_list : []
-    }
-  }
-  componentDidMount(){
-    this.get_kidney_columns_lists()
-  }
-  get_kidney_columns_lists(){
-    axios.get('http://localhost:8000/kidney_columns_lists/').
-    then(res => {
-      let data = JSON.parse(res.data)
-      this.setState({
-        kidney_col_list:data
-      })
-      console.log("Data ",this.state.kidney_col_list)
-    })
-    .catch(err=>{
-      console.log(err)
-    })
-  }
+ kidney_col_list =  ['age', 'bp', 'sg', 'al', 'su', 'pc', 'pcc', 'ba', 'bgr', 'bu', 'sc', 'sod', 'pot', 'hemo', 'pcv', 'wc', 'rc', 'htn', 'dm', 'cad', 'appet', 'pe', 'ane']
+ url = "kidney_post"
+  
   
   render() {
     return (
       
       <div>
-        {console.log("kkkkk "+typeof this.state.kidney_col_list)}
-        <FormRepetions diseases_obj={this.state.kidney_col_list} heading="Kidney Disease"></FormRepetions>
+        <FormRepetions diseases_obj={this.kidney_col_list} url={this.url} heading="Kidney Disease"></FormRepetions>
       </div>
 
     )

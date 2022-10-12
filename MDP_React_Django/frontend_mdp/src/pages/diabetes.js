@@ -1,6 +1,20 @@
 import React, { Component } from 'react'
 import "./css/diabetes.css"
+import axios from 'axios'
 
+let _csrfToken = null;
+const API_HOST = 'http://localhost:8000';
+
+async function getCsrfToken() {
+    if (_csrfToken === null) {
+      const response = await fetch(`${API_HOST}/csrf/`, {
+        credentials: 'include',
+      });
+      const data = await response.json();
+      _csrfToken = data.csrfToken;
+    }
+    return _csrfToken;
+  }
 
 export default class Diabetes extends Component {
     
@@ -37,11 +51,21 @@ export default class Diabetes extends Component {
         this.setState(this.diabetes_input)
     }
 
-    handleSubmit = (event)=>{
+    handleSubmit = async(event)=>{
         event.preventDefault();
         console.log("Handle submit is triggered ")
-        console.log(this.diabetes_input)
+        console.log(this.state.diabetes_input)
         
+        const response = await fetch(`http://localhost:8000/diabetes_post/`,{
+      method: 'POST',  
+      headers: (
+        {'X-CSRFToken': await getCsrfToken()}
+      ),
+      body:JSON.stringify(this.state.diabetes_input),
+      credentials: 'include',
+    });
+    const data = await response.json();
+    console.log(data)
 
     }
 

@@ -20,5 +20,11 @@ from core.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('wel/',ReactView.as_view(),name='something'),
-    path("kidney_columns_lists/",get_kidney_cols_list,name="kidney_columns_lists")
+    path("kidney_columns_lists/",get_kidney_cols_list,name="kidney_columns_lists"),
+    path('diabetes_post/',post_diabetes_data,name="diabetes_post"),
+    path('heart_post/',post_heart_data,name='heart_post'),
+    path('kidney_post/',post_kidney_data,name='kidney_post'),
+    path('parkinsons_post/',post_parkinsons_data,name='parkinsons_post'),
+    path('csrf/', csrf),
+    path('ping/', ping),
 ]
