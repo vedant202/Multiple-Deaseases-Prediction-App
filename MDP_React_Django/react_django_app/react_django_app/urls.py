@@ -27,4 +27,5 @@ urlpatterns = [
     path('parkinsons_post/',post_parkinsons_data,name='parkinsons_post'),
     path('csrf/', csrf),
     path('ping/', ping),
+    
 ]

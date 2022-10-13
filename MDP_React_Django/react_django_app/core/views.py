@@ -1,5 +1,6 @@
+from copyreg import pickle
 from django.shortcuts import HttpResponse, render
-from numpy import append
+import numpy as np
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.core.files import File
@@ -8,6 +9,7 @@ from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
 import json
 from django.http import JsonResponse
 from django.middleware.csrf import get_token
+import pickle
 
 # Create your views here.
 users = [
@@ -39,6 +41,16 @@ def post_diabetes_data(request):
         data = request.body
         
         print(json.loads(data))
+        diabates_data = json.loads(data)
+        diabates_data_arr = []
+        for i in diabates_data.values():
+            diabates_data_arr.append(float(i))
+        features = [np.asarray(diabates_data_arr)]
+        print(features)
+        model = pickle.load(open("D:/Multiple Deases Prediction/MDP_React_Django/react_django_app/core/ML_models_pkl/Diabetes_model_svm.pkl",'rb'))
+        predicted_value = model.predict(features)
+        print(predicted_value)
+
         response = {"success":True}
     else:
         response = {"success":False}
@@ -53,6 +65,16 @@ def post_diabetes_data(request):
 def post_heart_data(request):
     if request.method=="POST":
         print(json.loads(request.body))
+        json_obj = json.loads(request.body)
+        heart_arr = [float(i) for i in json_obj.values()]
+        print(heart_arr)
+        np_heart_arr = np.asarray(heart_arr)
+        model = pickle.load(open("D:/Multiple Deases Prediction/MDP_React_Django/react_django_app/core/ML_models_pkl/Heart_model_LR.pkl"))
+        # predicted = model.predict(np_heart_arr)
+        # print(predicted)
+
+
+
     return JsonResponse({"success":True})
 
 def post_kidney_data(request):

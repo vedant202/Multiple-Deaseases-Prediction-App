@@ -53,6 +53,7 @@ class App extends React.Component{
           <Route path="kidney" element={<Kidney />}></Route>
           <Route path="heart" element={<Heart />}></Route>
           <Route path="parkinsons" element={<Parkinsons />}></Route>
+          <Route path="*" element={<Home />}></Route>
         </Route>
       </Routes>
       </BrowserRouter>
